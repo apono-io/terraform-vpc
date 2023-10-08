@@ -52,7 +52,7 @@ variable "admin_subnet_parent_cidr" {
 
 variable "admin_subnet_cidrs" {
   description = "CIDRs for the adminsitrative subnets"
-  default = {
+  default     = {
     zone0 = ".0.0/21"
     zone1 = ".8.0/21"
     zone2 = ".16.0/21"
@@ -62,6 +62,7 @@ variable "admin_subnet_cidrs" {
 
 variable "admin_subnet_tags" {
   description = "Tags to apply to the admin subnet"
+  type        = map(string)
   default     = {}
 }
 
@@ -72,7 +73,7 @@ variable "public_subnet_parent_cidr" {
 
 variable "public_subnet_cidrs" {
   description = "CIDRs for the public subnets"
-  default = {
+  default     = {
     zone0 = ".32.0/21"
     zone1 = ".40.0/21"
     zone2 = ".48.0/21"
@@ -82,6 +83,7 @@ variable "public_subnet_cidrs" {
 
 variable "public_subnet_tags" {
   description = "Tags to apply to the public subnets"
+  type        = map(string)
   default     = {}
 }
 
@@ -92,7 +94,7 @@ variable "private_prod_subnet_parent_cidr" {
 
 variable "private_prod_subnet_cidrs" {
   description = "CIDRs for the private production subnets"
-  default = {
+  default     = {
     zone0 = ".64.0/21"
     zone1 = ".72.0/21"
     zone2 = ".80.0/21"
@@ -102,6 +104,7 @@ variable "private_prod_subnet_cidrs" {
 
 variable "private_prod_subnet_tags" {
   description = "Tags to apply to the private production subnets"
+  type        = map(string)
   default     = {}
 }
 
@@ -112,7 +115,7 @@ variable "private_working_subnet_parent_cidr" {
 
 variable "private_working_subnet_cidrs" {
   description = "CIDRs for the private working subnets"
-  default = {
+  default     = {
     zone0 = ".96.0/21"
     zone1 = ".104.0/21"
     zone2 = ".112.0/21"
@@ -122,6 +125,7 @@ variable "private_working_subnet_cidrs" {
 
 variable "private_working_subnet_tags" {
   description = "Tags to apply to the private working subnets"
+  type        = map(string)
   default     = {}
 }
 
@@ -167,23 +171,26 @@ variable "s3_vpc_endpoint_route_table_ids" {
 
 variable "internet_gateway_tags" {
   description = "Tags to apply to the internet gateway"
+  type        = map(string)
   default     = {}
 }
 
 variable "public_route_table_tags" {
   description = "Tags to apply to the public route table"
+  type        = map(string)
   default     = {}
 }
 
 variable "private_route_table_tags" {
   description = "Tags to apply to the private route table"
+  type        = map(string)
   default     = {}
 }
 
 variable "global_tags" {
   description = "AWS tags that will be added to all resources managed herein"
   type        = map(string)
-  default = {
+  default     = {
     "Author"     = "Fairwinds"
     "Managed By" = "Terraform"
   }
